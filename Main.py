@@ -2,48 +2,44 @@ class Node:
   def __init__(self, data):
     self.data = data
     self.next = None
-
+#     self.top=None
 
 class Stack:
   def __init__(self):
-    self.head = None
-
+    self.top = None
+    #self.top=None
   def push(self, data) -> None:
     # Write your code here
-        node = Node(x)
-        if node is None:
-            print('Heap Overflow')
-            return
-        node.data = x
-        node.next = self.top
-        self.top = node
-        self.nodesCount += 1
-    def isEmpty(self):
-        return self.top is None
-    def peek(self):
-        if not self.isEmpty():
-            return self.top.data
-        else:
-            print('The stack is empty')
-            exit(-1)
-
+    new=Node(data)
+    new.data=data
+    new.next=self.top
+    self.top=new
   def pop(self) -> None:
     # Write your code here
-    if self.top is None:
-            print('Stack Underflow')
-            exit(-1)
-    top = self.top.data
-    self.top = self.top.next
-     self.nodesCount -= 1
- 
-        return top
+    if self.top==None:
+      return None
+    else:
+      #temp=Node(data)
+      temp=self.top
+      return temp
+      self.top=self.top.next
+      
   def status(self):
     """
     It prints all the elements of stack.
     """
     # Write your code here  
-
-
+    if self.top==None:
+      print("None")
+    else:
+      #ptr=Node(data)
+      ptr=self.top
+      while(ptr!=None):
+        print(ptr,end="")
+        print("=>",end="")
+        ptr=ptr.next
+      if(ptr==None):
+        print("None")
 # Do not change the following code
 stack = Stack()
 operations = []
