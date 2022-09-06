@@ -2,44 +2,47 @@ class Node:
   def __init__(self, data):
     self.data = data
     self.next = None
-#     self.top=None
+
 
 class Stack:
   def __init__(self):
-    self.top = None
-    #self.top=None
+    self.head = None
+
   def push(self, data) -> None:
     # Write your code here
-    new=Node(data)
-    new.data=data
-    new.next=self.top
-    self.top=new
+    if self.head is None:
+        new_node = Node(data)
+        self.head = new_node
+    else:
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
   def pop(self) -> None:
     # Write your code here
-    if self.top==None:
-      return None
-    else:
-      #temp=Node(data)
-      temp=self.top
-      return temp
-      self.top=self.top.next
-      
+    if self.head != None:
+        if self.head.next == None:
+          self.head = None
+        else:
+          self.head = self.head.next
+
   def status(self):
     """
     It prints all the elements of stack.
     """
     # Write your code here  
-    if self.top==None:
-      print("None")
-    else:
-      #ptr=Node(data)
-      ptr=self.top
-      while(ptr!=None):
-        print(ptr,end="")
-        print("=>",end="")
-        ptr=ptr.next
-      if(ptr==None):
-        print("None")
+    temp = self.head
+    if temp == None:
+      print(temp)
+    if temp is not None:
+      while temp.next != None:
+        print(temp.data,end="=>")
+        temp = temp.next
+      if temp.next == None:
+        print(temp.data,end="=>")
+        print(None)
+
+
 # Do not change the following code
 stack = Stack()
 operations = []
